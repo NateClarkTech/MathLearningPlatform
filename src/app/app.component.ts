@@ -18,7 +18,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     NavbarComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'math-learning-platform';

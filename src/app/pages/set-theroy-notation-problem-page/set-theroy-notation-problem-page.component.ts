@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-set-theroy-notation-problem-page',
   imports: [],
   templateUrl: './set-theroy-notation-problem-page.component.html',
-  styleUrl: './set-theroy-notation-problem-page.component.css'
+  styleUrl: './set-theroy-notation-problem-page.component.scss'
 })
 export class SetTheroyNotationProblemPageComponent {
 

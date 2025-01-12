@@ -14,7 +14,7 @@ import { MatButton } from '@angular/material/button';
     RouterLinkActive,
   ],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.css'
+  styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
 
