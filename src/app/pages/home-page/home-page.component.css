@@ -1,0 +1,4 @@
+.button-container {
+    display: table-cell;
+    max-width: 600px;
+}
