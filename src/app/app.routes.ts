@@ -6,10 +6,14 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 
 //Router
 import { Routes } from '@angular/router';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 export const routes: Routes = [
     { path: '', component: HomePageComponent },
     { path: 'home', redirectTo: '' },
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
     { path: 'problems', component: ProblemsPageComponent, },
     { path: 'problems/set-theory-problems', component: SetTheroyNotationProblemPageComponent },
     { path: '**', component: PageNotFoundComponent }

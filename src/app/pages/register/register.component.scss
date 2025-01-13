@@ -1,0 +1,32 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+}
+  
+.register-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+}
+  
+mat-card-header {
+    text-align: center;
+}
+  
+mat-form-field {
+    margin-bottom: 20px;
+}
+  
+button {
+    margin-top: 10px;
+}
+  
+.full-width {
+    width: 100%;
+}
