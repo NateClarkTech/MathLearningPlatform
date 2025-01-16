@@ -7,6 +7,8 @@ import { environment } from '../environments/environment'
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import { provideMarkdown } from 'ngx-markdown';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 
 const firebaseConfig = environment.firebaseConfig;
 
@@ -18,5 +20,7 @@ export const appConfig: ApplicationConfig = {
     provideFirestore(() => getFirestore()), provideAnimationsAsync(),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    provideHttpClient(),
+    provideMarkdown({ loader: HttpClient}),
   ],
 };

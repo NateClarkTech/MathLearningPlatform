@@ -32,6 +32,11 @@
 								"glob": "**/*",
 								"input": "public"
 							}
+							{
+								"glob": "**/*",
+								"input": "src/app/markdown-files",
+								"output": "/markdown-files"
+							}
 						],
 						"styles": [
 							"@angular/material/prebuilt-themes/magenta-violet.css",

@@ -19,8 +19,8 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'signin', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'problems', component: ProblemsPageComponent, canActivate: [AuthGuard] },
-    { path: 'problems/set-theory', component: SetTheoryComponent, canActivate: [AuthGuard] },
-    { path: 'problems/set-theory/notation', component: SetTheroyNotationComponent, canActivate: [AuthGuard] },
+    { path: 'problems', component: ProblemsPageComponent, /* canActivate: [AuthGuard] */ },
+    { path: 'problems/set-theory', component: SetTheoryComponent, /* canActivate: [AuthGuard] */ },
+    { path: 'problems/set-theory/notation', component: SetTheroyNotationComponent, /*canActivate: [AuthGuard] */ },
     { path: '**', component: PageNotFoundComponent }
 ];
