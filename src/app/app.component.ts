@@ -6,6 +6,8 @@ import { inject } from '@angular/core';
 import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { getApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-root',
@@ -23,11 +25,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 export class AppComponent {
   title = 'math-learning-platform';
   firestore = inject(Firestore);
-  items$: Observable<any[]>;
-
 
   constructor() {
-    const aCollection = collection(this.firestore, 'items')
-    this.items$ = collectionData(aCollection);
+
   }
 }

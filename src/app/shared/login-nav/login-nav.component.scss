@@ -1,0 +1,23 @@
+/* Source: https://github.com/angular/components/blob/main/material.angular.io/src/app/shared/navbar/navbar.scss */
+
+:host {
+    display: block;
+    color: var(--mat-sys-primary);
+    background: var(--mat-sys-primary-container);
+}
+  
+.flex-spacer {
+    flex-grow: 1;
+}
+  
+  
+theme-picker {
+    display: none;
+}
+  
+@media (min-width: 328px) {
+    theme-picker {
+      display: block;
+    }
+}
+  

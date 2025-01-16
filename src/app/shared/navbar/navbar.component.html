@@ -13,14 +13,25 @@
   
   <div class="flex-spacer"></div>
   
-  <a mat-button class="docs-navbar-hide-small" href="https://github.com/NateClarkTech/MathLearningPlatform"
-    aria-label="GitHub Repository">
-    <span matButtonIcon [ngTemplateOutlet]="githubIcon"></span>
-    GitHub
-  </a>
-  <a mat-icon-button class="docs-navbar-show-small" href="https://github.com/NateClarkTech/MathLearningPlatform" aria-label="GitHub Repository">
-    <ng-container *ngTemplateOutlet="githubIcon"/>
-  </a>
+  @if (loggedIn()){
+    <div>
+      <app-logout></app-logout>
+    </div>
+  }
+  @else{
+    <app-login-nav></app-login-nav>
+  }
+
+  <div>
+    <a mat-button class="docs-navbar-hide-small" href="https://github.com/NateClarkTech/MathLearningPlatform"
+      aria-label="GitHub Repository">
+      <span matButtonIcon [ngTemplateOutlet]="githubIcon"></span>
+      GitHub
+    </a>
+    <a mat-icon-button class="docs-navbar-show-small" href="https://github.com/NateClarkTech/MathLearningPlatform" aria-label="GitHub Repository">
+      <ng-container *ngTemplateOutlet="githubIcon"/>
+    </a>
+  </div>
 </nav>
 
 <ng-template #githubIcon>
