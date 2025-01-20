@@ -1,0 +1,16 @@
+@for (answer of userAnswers; track answer ){
+    <mat-card class="top-spacer">
+        <div class="side-spacer">
+            <h4>Problem {{ $index + 1 }} Solution</h4>
+            @if (answer.type === 'membership'){
+                <p>Question:</p>
+                <p>Is the follow statement true:</p>
+                <markdown katex>
+                    Is $ {{ answer.number }} \in \lbrace {{ Array.from(answer.set).join(',&nbsp;') }} \rbrace $?
+                </markdown>
+                <p>Answer:</p>
+                <p>{{ answer.answer === true ? "True" : "False" }}</p>
+            }
+        </div>
+    </mat-card>
+}

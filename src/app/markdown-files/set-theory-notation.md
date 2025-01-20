@@ -3,56 +3,55 @@
 Set theory uses a variety of notations to represent sets, elements, and operations. Understanding these notations is fundamental to working with sets. Below is an overview of the most commonly used notations in set theory.
 
 ## 1. Sets and Elements
-- **Sets** are collections of distinct objects, usually enclosed in curly braces `{}`.
-  - Example: $ A $= {$1$,$2$,$3$}
+- **Sets** are collections of distinct objects, usually enclosed in curly braces `\lbrace \rbrace`.
+  - Example: $ A $= $\lbrace 1, 2, 3 \rbrace$
 - **Elements** of a set are the objects contained within the set.
-  - Example: In $ A $ = {$1$, $2$, $3$}, the number $2$ is an element of Set $A$.
+  - Example: In $ A = \lbrace 1, 2, 3 \rbrace $, the number $2$ is an element of Set $A$.
 
 ## 2. Membership
 - $ x \in A $: $ x $ is an element of set $ A $.
-  - Example: 2 $\in$ {$1$, $2$, $3$}
-- $x \notin A$: $ x $ is not an element of set $ A $.
-  - Example: $ 4 \notin $ {$1$, $2$, $3$}
+  - Example: $2 \in \lbrace 1, 2, 3 \rbrace$
+- $ x \notin A $: $ x $ is not an element of set $ A $.
+  - Example: $ 4 \notin \lbrace 1, 2, 3 \rbrace $
 
 ## 3. Subsets
-- \( A \subseteq B \): \( A \) is a subset of \( B \) (every element of \( A \) is also in \( B \)).
-  - Example: \( \{1, 2\} \subseteq \{1, 2, 3\} \)
-- \( A \subset B \): \( A \) is a proper subset of \( B \) (all elements of \( A \) are in \( B \), but \( A \neq B \)).
-  - Example: \( \{1, 2\} \subset \{1, 2, 3\} \)
-- \( A \nsubseteq B \): \( A \) is not a subset of \( B \).
-  - Example: \( \{1, 4\} \nsubseteq \{1, 2, 3\} \)
+$ A \subseteq B $: $ A $ is a subset of $ B $ (every element of $ A $ is also in $ B $).
+  - Example: $ \lbrace 1, 2 \rbrace \subseteq \lbrace 1, 2, 3 \rbrace $
+- $ A \subset B $: $ A $ is a proper subset of $ B $ (all elements of $ A $ are in $ B $, but $ A \neq B $).
+  - Example: $ \lbrace 1, 2 \rbrace \subset \lbrace 1, 2, 3 \rbrace $
+- $ A \nsubseteq B $: $ A $ is not a subset of $ B $.
+  - Example: $ \lbrace 1, 4 \rbrace \nsubseteq \lbrace 1, 2, 3 \rbrace $
 
 ## 4. Set Operations
-- **Union**: \( A \cup B \): The set of all elements in \( A \), \( B \), or both.
-  - Example: \( \{1, 2\} \cup \{2, 3\} = \{1, 2, 3\} \)
-- **Intersection**: \( A \cap B \): The set of all elements common to both \( A \) and \( B \).
-  - Example: \( \{1, 2\} \cap \{2, 3\} = \{2\} \)
-- **Difference**: \( A \setminus B \): The set of all elements in \( A \) but not in \( B \).
-  - Example: \( \{1, 2\} \setminus \{2, 3\} = \{1\} \)
-- **Complement**: \( A^c \) or \( \overline{A} \): The set of all elements not in \( A \) (relative to a universal set).
+- **Union**: $ A \cup B $: The set of all elements in $ A $, $ B $, or both.
+  - Example: $ \lbrace 1, 2 \rbrace \cup \lbrace 2, 3 \rbrace = \lbrace 1, 2, 3 \rbrace $
+- **Intersection**: $ A \cap B $: The set of all elements common to both $ A $ and $ B $.
+  - Example: $ \lbrace 1, 2 \rbrace \cap \lbrace 2, 3 \rbrace = \lbrace 2 \rbrace $
+- **Difference**: $ A \setminus B $: The set of all elements in $ A $ but not in $ B $.
+  - Example: $ \lbrace 1, 2 \rbrace \setminus \lbrace 2, 3 \rbrace = \lbrace 1 \rbrace $
+- **Complement**: $ A^c $ or $ \overline{A} $: The set of all elements not in $ A $ (relative to a universal set).
 
 ## 5. Special Sets
-- **Empty Set**: \( \emptyset \) or \( \{ \} \): The set with no elements.
-  - Example: \( \{ x \mid x \text{ is a prime number less than 2} \} = \emptyset \)
-- **Universal Set**: \( U \): The set containing all elements under consideration.
+- **Empty Set**: $ \emptyset $ or $ \lbrace \rbrace $: The set with no elements.
+  - Example: $ \lbrace x \mid x \text{ is a prime number less than 2} \rbrace = \emptyset $
+- **Universal Set**: $ U $: The set containing all elements under consideration.
 
 ## 6. Cardinality
-- **Cardinality**: \( |A| \): The number of elements in a set \( A \).
-  - Example: If \( A = \{1, 2, 3\} \), then \( |A| = 3 \).
+- **Cardinality**: $ |A| $: The number of elements in a set $ A $.
+  - Example: If $ A = \lbrace 1, 2, 3 \rbrace $, then $ |A| = 3 $.
 
 ## 7. Cartesian Product
-- \( A \times B \): The set of all ordered pairs where the first element is from \( A \) and the second is from \( B \).
-  - Example: If \( A = \{1, 2\} \) and \( B = \{a, b\} \), then \( A \times B = \{(1, a), (1, b), (2, a), (2, b)\} \).
+- $ A \times B $: The set of all ordered pairs where the first element is from $ A $ and the second is from $ B $.
+  - Example: If $ A = \lbrace 1, 2 \rbrace $ and $ B = \lbrace a, b \rbrace $, then $ A \times B = \lbrace (1, a), (1, b), (2, a), (2, b) \rbrace $
 
 ## 8. Power Set
-- \( \mathcal{P}(A) \): The set of all subsets of \( A \), including \( A \) itself and the empty set.
-  - Example: If \( A = \{1, 2\} \), then:
-    - \( \mathcal{P}(A) = \{\emptyset, \{1\}, \{2\}, \{1, 2\}\} \)
+- $ \mathcal{P}(A) $: The set of all subsets of $ A $, including $ A $ itself and the empty set.
+  - Example: If $ A = \lbrace 1, 2 \rbrace $, then:
+    - $ \mathcal{P}(A) = \lbrace \lbrace \emptyset \rbrace, \lbrace 1 \rbrace, \lbrace 2 \rbrace, \lbrace 1, 2 \rbrace \rbrace$
 
 ## 9. Venn Diagrams
 Venn diagrams visually represent sets and their relationships, such as union, intersection, and difference.
 
----
 This notation provides the foundation for understanding and applying set theory across mathematics, computer science, and related disciplines.
 
-__ Generated by ChatGPT as a placeholder__
+*Generated by ChatGPT as a placeholder*
