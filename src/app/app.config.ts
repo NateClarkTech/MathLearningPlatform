@@ -9,6 +9,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { provideMarkdown } from 'ngx-markdown';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { FirebaseApp } from '@angular/fire/app';
 
 const firebaseConfig = environment.firebaseConfig;
 

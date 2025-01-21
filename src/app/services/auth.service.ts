@@ -74,4 +74,9 @@ export class AuthService {
       this.router.navigate(['/']);
     }
   }
+
+  public getUser(): Signal<User | null | undefined> {
+    return this.authState;
+  }
+  
 }
