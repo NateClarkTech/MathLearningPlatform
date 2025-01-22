@@ -3,7 +3,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProblemsPageComponent } from './pages/problems-page/problems-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { SetTheoryComponent } from './pages/set-theory/set-theory.component';
-import { SetTheroyNotationComponent } from './pages/set-theory/set-theroy-notation/set-theroy-notation.component';
+import { SetTheroyNotationComponent } from './pages/set-theory/set-theroy-notation/set-membership/set-theroy-notation.component';
 
 //Router
 import { Routes, CanActivate} from '@angular/router';

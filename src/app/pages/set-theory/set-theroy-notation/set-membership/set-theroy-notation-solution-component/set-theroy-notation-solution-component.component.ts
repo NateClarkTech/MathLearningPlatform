@@ -6,7 +6,7 @@ import { SetMemeberProblem } from '../set-member-problem-type';
 import { MarkdownComponent } from 'ngx-markdown';
 import { FixedSizeVirtualScrollStrategy } from '@angular/cdk/scrolling';
 import { Auth, user } from '@angular/fire/auth';
-import { AuthService } from '../../../../services/auth.service';
+import { AuthService } from '../../../../../services/auth.service';
 import { doc, setDoc } from '@angular/fire/firestore';
 import { FirebaseApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore } from '@angular/fire/firestore';
