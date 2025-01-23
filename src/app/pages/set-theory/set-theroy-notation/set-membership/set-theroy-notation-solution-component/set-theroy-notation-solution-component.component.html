@@ -1,5 +1,5 @@
 @for (answer of userAnswers; track answer ){
-    @if (validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'membership'){
+    @if (validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'isin'){
         <mat-card class="top-spacer">
             <div class="side-spacer">
                 <h4>Problem {{ $index + 1 }} Solution</h4>
@@ -12,7 +12,7 @@
             </div>
         </mat-card>
     }
-    @else if (!validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'membership'){
+    @else if (!validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'isin'){
         <mat-card class="top-spacer">
             <div class="side-spacer">
                 <h4>Problem {{ $index + 1 }} Solution</h4>
@@ -55,6 +55,62 @@
             </div>
         </mat-card>
     }
+    @else if (validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'isnotin'){
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <p>Is the follow statement true:</p>
+                <markdown katex>
+                    $ {{ answer.number }} \notin \lbrace {{ Array.from(answer.set).join(',&nbsp;') }} \rbrace $?
+                </markdown>    
+                <p class="correct-answer">Your answer is correct</p>
+            </div>
+        </mat-card>
+    }
+    @else if (!validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'isnotin'){
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <p>Is the follow statement true:</p>
+                <markdown katex>
+                    $ {{ answer.number }} \notin \lbrace {{ Array.from(answer.set).join(',&nbsp;') }} \rbrace $?
+                </markdown>    
+                <p class="wrong-answer">Your answer is incorrect</p>
+                <p>Problem solution: {{ answer.answer ? "True" : "False" }}</p>
+                <div class="bottom-spacer">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Problem solution steps
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            @if (answer.answer){
+                                <markdown katex>
+                                    $ \notin $ means item "a" **is not in** set "A", where a is some element and A is some set.<br>
+                                    - 1. Look at the element on the left hand side<br>
+                                    - 2. Look at the set on the right hand side<br>
+                                    - 3. If the element **is not in** the set, then the statement is true, otherwise it is false.<br>
+                                    In this case, the element {{ answer.number }} **is not in** set $\lbrace${{ Array.from(answer.set).join(',&nbsp;') }}$\rbrace$<br>
+                                </markdown>
+                            }
+                            @if (!answer.answer){
+                                <markdown katex>
+                                    $ \notin $ means item "a" **is not in** set "A", where a is some element and A is some set.<br>
+                                    - 1. Look at the element on the left hand side<br>
+                                    - 2. Look at the set on the right hand side<br>
+                                    - 3. If the element **is not in** the set, then the statement is true, otherwise it is false.<br>
+                                    In this case, the element {{ answer.number }} **is in** set $\lbrace${{ Array.from(answer.set).join(',&nbsp;') }}$\rbrace$<br>
+                                </markdown>
+                            }
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+        </mat-card>
+    }
     @else {
         <mat-card class="top-spacer">
             <div class="side-spacer">
@@ -65,6 +121,12 @@
 }
 <mat-card class="top-spacer">
     <div class="side-spacer">
-        <h2>You have earned the ranking of {{ understandingRank }}</h2>
+        @if (understandingRank === 'Need to review'){
+            <h2>You have earned the ranking of {{ understandingRank }}</h2>
+            <button mat-button (click)="reloadCurrentPage()" style="margin-bottom: 5%;">Try again</button>
+        }
+        @else {
+            <h2>You have earned the ranking of {{ understandingRank }}</h2>
+        }
     </div>
 </mat-card>

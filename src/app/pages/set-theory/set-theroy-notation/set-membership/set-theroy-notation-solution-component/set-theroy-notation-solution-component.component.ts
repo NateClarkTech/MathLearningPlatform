@@ -17,7 +17,8 @@ import { getFirestore } from '@angular/fire/firestore';
     MatCardModule,
     MatButtonModule,
     MarkdownComponent,
-    MatExpansionModule
+    MatExpansionModule,
+    MatButtonModule,
   ],
   templateUrl: './set-theroy-notation-solution-component.component.html',
   styleUrl: './set-theroy-notation-solution-component.component.scss'
@@ -61,15 +62,8 @@ export class SetTheroyNotationSolutionComponent implements OnInit {
       });
   }
 
-  validateAnswer(userAnswer: string, correctAnswer: boolean): boolean {
-    if ((userAnswer.toLowerCase() === "true" 
-      ||userAnswer.toLowerCase() === "t") && 
-        correctAnswer === true) {
-      return true;
-    } 
-    else if ((userAnswer.toLocaleLowerCase() === "false" ||
-             userAnswer.toLocaleLowerCase() === "f") && 
-             correctAnswer === false) {
+  validateAnswer(userAnswer: boolean | null, correctAnswer: boolean): boolean {
+    if (userAnswer === correctAnswer) {
       return true;
     } 
     else {
@@ -77,5 +71,7 @@ export class SetTheroyNotationSolutionComponent implements OnInit {
     }
   }
 
-
+  reloadCurrentPage() {
+    window.location.reload();
+   }
 }

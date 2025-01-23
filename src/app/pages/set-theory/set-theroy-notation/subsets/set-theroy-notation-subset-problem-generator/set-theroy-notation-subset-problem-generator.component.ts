@@ -3,6 +3,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MarkdownComponent, } from 'ngx-markdown';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { Output, EventEmitter } from '@angular/core';
 import { SubsetProblem } from '../subset-problem.type';
@@ -15,6 +16,7 @@ import { SubsetProblem } from '../subset-problem.type';
     MatInputModule,
     MarkdownComponent,
     MatButtonModule,
+    MatSelectModule,
     FormsModule,
   ],
   templateUrl: './set-theroy-notation-subset-problem-generator.component.html',

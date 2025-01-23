@@ -3,5 +3,5 @@ export type SetMemeberProblem = {
     number: number;
     type: string;
     answer: boolean;
-    userAnswer: string;
+    userAnswer: boolean | null;
 };

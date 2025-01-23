@@ -8,7 +8,7 @@ import { SetTheroyNotationComponent } from './pages/set-theory/set-theroy-notati
 //Router
 import { Routes, CanActivate} from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './shared/register/register.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 //Route Guard
 import { AuthGuard } from './services/auth-guard.service';

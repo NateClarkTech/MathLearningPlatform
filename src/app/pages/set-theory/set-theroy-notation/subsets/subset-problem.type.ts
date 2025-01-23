@@ -3,5 +3,5 @@ export type SubsetProblem = {
     subset: Set<number>;
     type: string;
     answer: boolean;
-    userAnswer: string;
+    userAnswer: boolean | null;
 };

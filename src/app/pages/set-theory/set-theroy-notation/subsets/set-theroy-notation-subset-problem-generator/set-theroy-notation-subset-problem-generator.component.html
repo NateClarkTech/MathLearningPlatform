@@ -11,11 +11,10 @@
                     <p>True/False</p>
                     <mat-form-field>
                         <mat-label>Answer</mat-label>
-                        <input
-                            matInput
-                            placeholder="True/False"
-                            [(ngModel)]="generatedProblems[$index].userAnswer"
-                        />
+                        <mat-select [(ngModel)]="generatedProblems[$index].userAnswer">
+                            <mat-option [value]="true">True</mat-option>
+                            <mat-option [value]="false">False</mat-option>
+                        </mat-select>
                     </mat-form-field>
                 </div>
             }

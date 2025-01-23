@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './set-theroy-notation-subset-solution-component.component.html',
   styleUrl: './set-theroy-notation-subset-solution-component.component.scss'
 })
-export class SetTheroyNotationSubsetSolutionComponentComponent {
+export class SetTheroyNotationSubsetSolutionComponent {
 
 }
