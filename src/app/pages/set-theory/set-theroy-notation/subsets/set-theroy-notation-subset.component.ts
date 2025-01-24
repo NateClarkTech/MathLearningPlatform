@@ -20,7 +20,7 @@ import { SetTheroyNotationSubsetSolutionComponent } from './set-theroy-notation-
   styleUrl: './set-theroy-notation-subset.component.scss'
 })
 export class SetTheroyNotationSubsetComponent {
- userAnswered = false;
+  userAnswered = false;
   userAnswers : SubsetProblem[] = [];
 
   onLoad($event : any){

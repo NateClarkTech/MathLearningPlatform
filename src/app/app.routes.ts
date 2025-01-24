@@ -4,6 +4,7 @@ import { ProblemsPageComponent } from './pages/problems-page/problems-page.compo
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { SetTheoryComponent } from './pages/set-theory/set-theory.component';
 import { SetTheroyNotationComponent } from './pages/set-theory/set-theroy-notation/set-membership/set-theroy-notation.component';
+import { SetTheroyNotationSubsetComponent } from './pages/set-theory/set-theroy-notation/subsets/set-theroy-notation-subset.component';
 
 //Router
 import { Routes, CanActivate} from '@angular/router';
@@ -21,6 +22,7 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'problems', component: ProblemsPageComponent, canActivate: [AuthGuard]},
     { path: 'problems/set-theory', component: SetTheoryComponent, canActivate: [AuthGuard]},
-    { path: 'problems/set-theory/notation', component: SetTheroyNotationComponent, canActivate: [AuthGuard]},
+    { path: 'problems/set-theory/notation/subsets', component: SetTheroyNotationSubsetComponent, canActivate: [AuthGuard]},
+    { path: 'problems/set-theory/notation/membership', component: SetTheroyNotationComponent, canActivate: [AuthGuard]},
     { path: '**', component: PageNotFoundComponent }
 ];

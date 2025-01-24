@@ -3,7 +3,7 @@
         <div class="spacer">
             <markdown  
             katex
-            [src]="'/markdown-files/set-theory-notation.md'"
+            [src]="'/markdown-files/set-theory-notation-subsets.md'"
             (load)="onLoad($event)"
             (error)="onError($event)"></markdown>
         </div>
@@ -12,10 +12,10 @@
         <div class="spacer">
             @if (!userAnswered) {
                 <span>Here are some generated problems:</span>
-                <app-set-theroy-notation-subset-problem-generator></app-set-theroy-notation-subset-problem-generator>
+                <app-set-theroy-subset-problem-generator (answerSender)="recieveUserAnswers($event)"></app-set-theroy-subset-problem-generator>
             }
             @else {
-                <app-set-theroy-notation-subset-solution-component></app-set-theroy-notation-subset-solution-component>
+                <app-set-subset-solution-component [userAnswers]="userAnswers"></app-set-subset-solution-component>
             }
         </div>
     </mat-tab>

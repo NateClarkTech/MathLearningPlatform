@@ -2,10 +2,28 @@
     <mat-card class="top-spacer">
         <div class="side-spacer">
             <h4>Problem {{ $index + 1 }}</h4>
-            @if (problem.type === 'membership'){
+            <p>{{ problem.type }}</p>
+            <p>{{ problem.answer }}</p>
+            @if (problem.type === 'subset'){
                 <p>Is the follow statement true:</p>
                 <markdown katex>
-                    $ {{ problem.number }} \in \lbrace {{ Array.from(problem.set).join(',&nbsp;') }} \rbrace $?
+                    $ \lbrace {{ Array.from(problem.subset).join(',&nbsp;') }} \rbrace \subseteq \lbrace {{ Array.from(problem.set).join(',&nbsp;') }} \rbrace $
+                </markdown>
+                <div>
+                    <p>True/False</p>
+                    <mat-form-field>
+                        <mat-label>Answer</mat-label>
+                        <mat-select [(ngModel)]="generatedProblems[$index].userAnswer">
+                            <mat-option [value]="true">True</mat-option>
+                            <mat-option [value]="false">False</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            }
+            @else if (problem.type === 'notsubset'){
+                <p>Is the follow statement true:</p>
+                <markdown katex>
+                    $ \lbrace {{ Array.from(problem.subset).join(',&nbsp;') }} \rbrace \nsubseteq \lbrace {{ Array.from(problem.set).join(',&nbsp;') }} \rbrace $
                 </markdown>
                 <div>
                     <p>True/False</p>
