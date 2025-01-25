@@ -1,21 +1,50 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MarkdownComponent } from 'ngx-markdown';
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MarkdownComponent, MarkdownModule } from 'ngx-markdown';
+
+interface ProblemNode {
+  name: string;
+  routerLink?: string;
+  children?: ProblemNode[];
+}
+
+const TREE_DATA: ProblemNode[] = [
+  {
+    name: 'Set Theory Notation',
+    children: [
+      {name: 'Set Membership', routerLink:"/problems/set-theory/notation/membership",},
+      {name: 'Subsets', routerLink:"/problems/set-theory/notation/subsets",},
+    ]
+  },
+];
 
 @Component({
   selector: 'app-set-theory',
   imports: [
+    MatTreeModule,
+    MatIconModule,
     MatButtonModule,
     MatTabsModule,
-    RouterLink,
-    MarkdownComponent
+    CommonModule,
+    MarkdownModule,
+    RouterLink
   ],
   templateUrl: './set-theory.component.html',
-  styleUrl: './set-theory.component.scss'
+  styleUrl: './set-theory.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SetTheoryComponent {
+
+  childrenAccessor = (node: ProblemNode) => node.children ?? [];
+
+  dataSource = TREE_DATA;
+
+  hasChild = (_: number, node: ProblemNode) => !!node.children && node.children.length > 0;
 
   onLoad($event : any){
     console.log($event);
