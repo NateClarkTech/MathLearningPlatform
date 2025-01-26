@@ -1,0 +1,22 @@
+<mat-tab-group dynamicHeight="true">
+    <mat-tab label="Lesson">
+        <div class="spacer">
+            <markdown  
+            katex
+            [src]="'/markdown-files/set-theory-notation-subsets.md'"
+            (load)="onLoad($event)"
+            (error)="onError($event)"></markdown>
+        </div>
+    </mat-tab>
+    <mat-tab [label]="userAnswered ? 'Solutions' : 'Problems'">
+        <div class="spacer">
+            @if (!userAnswered) {
+                <span>Here are some generated problems:</span>
+                <app-set-theroy-subset-problem-generator (answerSender)="recieveUserAnswers($event)"></app-set-theroy-subset-problem-generator>
+            }
+            @else {
+                <app-set-subset-solution-component [userAnswers]="userAnswers"></app-set-subset-solution-component>
+            }
+        </div>
+    </mat-tab>
+</mat-tab-group>

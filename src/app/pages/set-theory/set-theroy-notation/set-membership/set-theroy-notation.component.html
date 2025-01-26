@@ -1,0 +1,22 @@
+<mat-tab-group dynamicHeight="true">
+    <mat-tab label="Lesson">
+        <div class="spacer">
+            <markdown  
+            katex
+            [src]="'/markdown-files/set-theory-notation-set-membership.md'"
+            (load)="onLoad($event)"
+            (error)="onError($event)"></markdown>
+        </div>
+    </mat-tab>
+    <mat-tab [label]="userAnswered ? 'Solutions' : 'Problems'">
+        <div class="spacer">
+            @if (!userAnswered) {
+                <span>Here are some generated problems:</span>
+                <app-set-theroy-notiation-problem-generator (answerSender)="recieveUserAnswers($event)"></app-set-theroy-notiation-problem-generator>
+            }
+            @else {
+                <app-set-theroy-notation-solution [userAnswers]="userAnswers"></app-set-theroy-notation-solution>
+            }
+        </div>
+    </mat-tab>
+</mat-tab-group>

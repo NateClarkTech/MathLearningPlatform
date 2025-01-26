@@ -1,0 +1,17 @@
+<div>
+  <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>account_circle</mat-icon>
+    Account
+  </button>
+</div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item disabled="true">
+    <mat-icon>settings</mat-icon>
+    <span>Account Page</span>
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-menu>

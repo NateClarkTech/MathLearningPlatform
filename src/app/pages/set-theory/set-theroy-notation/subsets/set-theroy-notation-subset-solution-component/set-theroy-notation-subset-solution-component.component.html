@@ -1,0 +1,124 @@
+@for (answer of userAnswers; track answer ){
+    @if (validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'subset'){
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <p>Is the follow statement true:</p>
+                <markdown katex>
+                    $ \lbrace ${{ Array.from(answer.subset).join(',&nbsp;') }} $ \rbrace \subseteq \lbrace ${{ Array.from(answer.set).join(',&nbsp;') }} $\rbrace$
+                </markdown>    
+                <p class="correct-answer">Your answer is correct</p>
+            </div>
+        </mat-card>
+    }
+    @else if (!validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'subset'){
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <p>Is the follow statement true:</p>
+                <markdown katex>
+                    $ \lbrace ${{ Array.from(answer.subset).join(',&nbsp;') }}$ \rbrace \subseteq \lbrace ${{ Array.from(answer.set).join(',&nbsp;') }} $\rbrace $
+                </markdown>    
+                <p class="wrong-answer">Your answer is incorrect</p>
+                <p>Problem solution: {{ answer.answer ? "True" : "False" }}</p>
+                <div class="bottom-spacer">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Problem solution steps
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            @if (answer.answer){
+                                <markdown katex>
+                                    The $ \subseteq $ symbol means the set of the left side is a subset or equal to the set on right side.  <br> 
+                                    In this case, the set on the left side is $\lbrace${{ Array.from(answer.subset).join(',&nbsp;') }}$\rbrace$ and the set on the right side is $ \lbrace $ {{ Array.from(answer.set).join(',&nbsp;') }} $ \rbrace $.<br>   
+                                    Since all the elements in the set on the left is in the set on the right the statement is true.   <br>
+                                </markdown>
+                            }
+                            @if (!answer.answer){
+                                <markdown katex>
+                                    The $ \subseteq $ symbol means the set of the left side is a subset or equal to the set on right side.  <br> 
+                                    In this case, the set on the left side is $\lbrace${{ Array.from(answer.subset).join(',&nbsp;') }}$\rbrace$ and the set on the right side is $ \lbrace $ {{ Array.from(answer.set).join(',&nbsp;') }} $ \rbrace $. <br>  
+                                    Since the set on the left has these elements $\lbrace${{ Array.from(getElementsNotSubset(answer.set, answer.subset)).join(',&nbsp;') }}$\rbrace$ which are not in the set on the right the statement is false.   <br>
+                                </markdown>
+                            }
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+        </mat-card>
+    }
+    @else if (validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'notsubset'){
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <p>Is the follow statement true:</p>
+                <markdown katex>
+                   $ \lbrace $ {{ Array.from( answer.subset ).join(',&nbsp;') }} $ \rbrace \nsubseteq \lbrace $ {{ Array.from(answer.set).join(',&nbsp;') }} $ \rbrace $
+                </markdown>    
+                <p class="correct-answer">Your answer is correct</p>
+            </div>
+        </mat-card>
+    }
+    @else if (!validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'notsubset'){
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <p>Is the follow statement true:</p>
+                <markdown katex>
+                    $ \lbrace $ {{ Array.from( answer.subset ).join(',&nbsp;') }} $ \rbrace \nsubseteq \lbrace $ {{ Array.from(answer.set).join(',&nbsp;') }} $ \rbrace $
+                </markdown>    
+                <p class="wrong-answer">Your answer is incorrect</p>
+                <p>Problem solution: {{ answer.answer ? "True" : "False" }}</p>
+                <div class="bottom-spacer">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Problem solution steps
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            @if (answer.answer){
+                                <markdown katex>
+                                    The $\nsubseteq$ symbol means the set of the left side is a subset of the set on right side.<br>
+                                    In this case, the set on the left side is $\lbrace${{ Array.from(answer.subset).join(',&nbsp;') }}$\rbrace$ and the set on the right side is $\lbrace${{ Array.from(answer.set).join(',&nbsp;') }}$\rbrace$.<br>   
+                                    Since the set on the left has these elements $\lbrace$ {{ Array.from(getElementsNotSubset(answer.set, answer.subset)).join(',&nbsp;') }}$\rbrace$ which are not in the set on the right the statement is true. <br>  
+                                </markdown>
+                            }
+                            @if (!answer.answer){
+                                <markdown katex>
+                                    The $\nsubseteq$ symbol means the set of the left side is **not** a subset of the set on right side.<br>
+                                    In this case, the set on the left side is $\lbrace${{ Array.from(answer.subset).join(',&nbsp;') }}$\rbrace$ and the set on the right side is $\lbrace${{ Array.from(answer.set).join(',&nbsp;') }}$\rbrace$.   <br>
+                                    Since all the elements in the set on the left is in the set on the right the statement is false.<br>
+                                </markdown>
+                            }
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+        </mat-card>
+    }
+    @else {
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <p>Unknown problem type</p>
+            </div>
+        </mat-card>
+    }
+}
+<mat-card class="top-spacer">
+    <div class="side-spacer">
+        @if (understandingRank === 'Need to review'){
+            <h2>You have earned the ranking of {{ understandingRank }}</h2>
+            <button mat-button (click)="reloadCurrentPage()" style="margin-bottom: 5%;">Try again</button>
+        }
+        @else {
+            <h2>You have earned the ranking of {{ understandingRank }}</h2>
+        }
+    </div>
+</mat-card>
