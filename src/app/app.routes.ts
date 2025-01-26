@@ -23,7 +23,7 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'problems', component: ProblemsPageComponent, canActivate: [AuthGuard]},
     { path: 'problems/set-theory', component: SetTheoryComponent, canActivate: [AuthGuard]},
-    {path: 'problems/set-theory/notation', component: SetTheoryNotationComponent, canActivate: [AuthGuard]},
+    { path: 'problems/set-theory/notation', component: SetTheoryNotationComponent, canActivate: [AuthGuard]},
     { path: 'problems/set-theory/notation/subsets', component: SetTheroyNotationSubsetComponent, canActivate: [AuthGuard]},
     { path: 'problems/set-theory/notation/membership', component: SetTheroyNotationComponent, canActivate: [AuthGuard]},
     { path: '**', component: PageNotFoundComponent }

@@ -9,7 +9,10 @@
                     (error)="onError($event)"></markdown>
             </div>
         </mat-tab>
-        <mat-tab label="Problems">
+        <mat-tab label="Problem Types">
+
+            <h3 class="side-spacer">Select the type of problem to learn about</h3>
+
             <mat-tree #tree [dataSource]="dataSource" [childrenAccessor]="childrenAccessor" class="example-tree side-spacer">
                 <!-- This is the tree node template for leaf nodes -->
                 <!-- There is inline padding applied to this node using styles.
@@ -28,7 +31,12 @@
                         {{tree.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
                     </mat-icon>
                     </button>
-                    {{node.name}}
+                    @if (node.routerLink) {
+                        <a mat-button style="color: white" routerLink="{{node.routerLink}}">{{node.name}}</a>
+                    } 
+                    @else {
+                        {{node.name}}
+                    }
                 </div>
                 <!-- There is inline padding applied to this div using styles.
                     This padding value depends on the mat-icon-button width.  -->
