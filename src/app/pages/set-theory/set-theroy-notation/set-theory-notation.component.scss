@@ -1,10 +1,16 @@
-.example-tree-invisible {
-    display: none;
-}
-
-.side-spacer{
+.spacer {
+    padding-top: 1%;
     padding-left: 5%;
     padding-right: 5%;
+}
+
+.side-spacer {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.example-tree-invisible {
+    display: none;
 }
   
 .example-tree ul,
@@ -33,4 +39,3 @@
 .bottom-spacer{
     margin-bottom: 20px;
 }
-

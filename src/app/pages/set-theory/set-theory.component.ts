@@ -15,13 +15,20 @@ interface ProblemNode {
 
 const TREE_DATA: ProblemNode[] = [
   {
-    name: 'Set Theory Notation',
-    children: [
-      {name: 'Set Membership', routerLink:"/problems/set-theory/notation/membership",},
-      {name: 'Subsets', routerLink:"/problems/set-theory/notation/subsets",},
+    name: 'Set Theory',
+    children:[
+      {
+        name: 'Notation',
+        routerLink:"notation",
+        children: [
+          {name: 'Set Membership', routerLink:"notation/membership",},
+          {name: 'Subsets', routerLink:"notation/subsets",},
+        ]
+      }
     ]
   },
 ];
+
 
 @Component({
   selector: 'app-set-theory',
@@ -35,11 +42,9 @@ const TREE_DATA: ProblemNode[] = [
     RouterLink
   ],
   templateUrl: './set-theory.component.html',
-  styleUrl: './set-theory.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './set-theory.component.scss'
 })
 export class SetTheoryComponent {
-
   childrenAccessor = (node: ProblemNode) => node.children ?? [];
 
   dataSource = TREE_DATA;

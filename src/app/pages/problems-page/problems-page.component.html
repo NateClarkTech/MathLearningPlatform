@@ -18,11 +18,16 @@
             {{tree.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
           </mat-icon>
         </button>
-        {{node.name}}
+        @if (node.routerLink) {
+          <a mat-button style="color: white" routerLink="{{node.routerLink}}">{{node.name}}</a>
+        } 
+        @else {
+          {{node.name}}
+        }
       </div>
       <!-- There is inline padding applied to this div using styles.
           This padding value depends on the mat-icon-button width.  -->
-      <div [class.example-tree-invisible]="!tree.isExpanded(node)"
+      <div [class.example-tree-invisible]="tree.isExpanded(node)"
           role="group">
         <ng-container matTreeNodeOutlet></ng-container>
       </div>
