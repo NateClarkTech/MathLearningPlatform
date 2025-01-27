@@ -1,0 +1,65 @@
+@for ( answer of userAnswers; track answer ) {
+    @if (validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'union') {
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <p>What is the resulting set?</p>
+                <markdown katex>
+                    $\lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace \cup \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace $
+                </markdown>
+                <p class="correct-answer">Your answer is correct</p>
+            </div>
+        </mat-card>
+    }
+    @else if (!validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'union') {
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <p>What is the resulting set?</p>
+                <markdown katex>
+                    $\lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace \cup \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace $
+                </markdown>
+                <p class="wrong-answer">Your answer is incorrect</p>
+                <p>Problem solution: {{ answer.answer ? "True" : "False" }}</p>
+                <div class="bottom-spacer">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Problem solution steps
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <markdown katex>
+                                The operator $ \cup $ combines the elements of two sets into one set. The resulting set contains all the elements of the two sets. <br>
+                                Since a set is a collection of unique elements, the resulting set will contain all the elements of the two sets without any duplicates. <br>
+                                The resulting set is the union of the two sets and is shown below:<br>
+                                <br>
+                                $\lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace \cup \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace = \lbrace {{ Array.from(getUnion( answer.setA, answer.setB )).join(',&nbsp;') }} \rbrace$
+                            </markdown>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+        </mat-card>
+    }
+    @else {
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <p>Unknown problem type</p>
+            </div>
+        </mat-card>
+    }
+}
+<mat-card class="top-spacer">
+    <div class="side-spacer">
+        @if (understandingRank === 'Need to review'){
+            <h2>You have earned the ranking of {{ understandingRank }}</h2>
+            <button mat-button (click)="reloadCurrentPage()" style="margin-bottom: 5%;">Try again</button>
+        }
+        @else {
+            <h2>You have earned the ranking of {{ understandingRank }}</h2>
+        }
+    </div>
+</mat-card>
