@@ -12,7 +12,7 @@
         <div class="spacer">
             @if (!userAnswered) {
                 <span>Here are some generated problems:</span>
-                <app-set-theroy-subset-problem-generator (answerSender)="recieveUserAnswers($event)"></app-set-theroy-subset-problem-generator>
+                <app-set-theory-subset-problem-generator (answerSender)="recieveUserAnswers($event)"></app-set-theory-subset-problem-generator>
             }
             @else {
                 <app-set-subset-solution-component [userAnswers]="userAnswers"></app-set-subset-solution-component>

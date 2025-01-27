@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SetTheroyNotationSubsetSolutionComponent} from './set-theroy-notation-subset-solution-component.component';
+import { SetTheoryNotationSubsetSolutionComponent} from './set-theroy-notation-subset-solution-component.component';
 
 describe('SetTheroyNotationSubsetSolutionComponentComponent', () => {
-  let component: SetTheroyNotationSubsetSolutionComponent;
-  let fixture: ComponentFixture<SetTheroyNotationSubsetSolutionComponent>;
+  let component: SetTheoryNotationSubsetSolutionComponent;
+  let fixture: ComponentFixture<SetTheoryNotationSubsetSolutionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SetTheroyNotationSubsetSolutionComponent]
+      imports: [SetTheoryNotationSubsetSolutionComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SetTheroyNotationSubsetSolutionComponent);
+    fixture = TestBed.createComponent(SetTheoryNotationSubsetSolutionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

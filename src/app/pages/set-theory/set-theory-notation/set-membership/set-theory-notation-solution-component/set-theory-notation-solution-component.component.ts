@@ -12,7 +12,7 @@ import { FirebaseApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore } from '@angular/fire/firestore';
 
 @Component({
-  selector: 'app-set-theroy-notation-solution',
+  selector: 'app-set-theory-notation-solution',
   imports: [
     MatCardModule,
     MatButtonModule,
@@ -20,10 +20,10 @@ import { getFirestore } from '@angular/fire/firestore';
     MatExpansionModule,
     MatButtonModule,
   ],
-  templateUrl: './set-theroy-notation-solution-component.component.html',
-  styleUrl: './set-theroy-notation-solution-component.component.scss'
+  templateUrl: './set-theory-notation-solution-component.component.html',
+  styleUrl: './set-theory-notation-solution-component.component.scss'
 })
-export class SetTheroyNotationSolutionComponent implements OnInit {
+export class SetTheoryNotationSolutionComponent implements OnInit {
   @Input() userAnswers: SetMemeberProblem[] = [];
 
   userScore = 0;

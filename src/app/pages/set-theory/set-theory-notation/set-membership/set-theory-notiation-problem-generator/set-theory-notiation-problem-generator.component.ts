@@ -16,7 +16,7 @@ export type SubsetProblem = {
 };
 
 @Component({
-  selector: 'app-set-theroy-notiation-problem-generator',
+  selector: 'app-set-theory-notiation-problem-generator',
   imports: [
     MatCardModule,
     MatInputModule,
@@ -25,10 +25,10 @@ export type SubsetProblem = {
     MatButtonModule,
     FormsModule,
   ],
-  templateUrl: './set-theroy-notiation-problem-generator.component.html',
-  styleUrl: './set-theroy-notiation-problem-generator.component.scss'
+  templateUrl: './set-theory-notiation-problem-generator.component.html',
+  styleUrl: './set-theory-notiation-problem-generator.component.scss'
 })
-export class SetTheroyNotiationProblemGeneratorComponent {
+export class SetTheoryNotiationProblemGeneratorComponent {
   @Output() answerSender = new EventEmitter<SetMemeberProblem[]>();
 
   generatedProblems: any[] = [];

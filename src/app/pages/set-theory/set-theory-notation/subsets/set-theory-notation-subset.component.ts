@@ -4,22 +4,22 @@ import { MarkdownComponent } from 'ngx-markdown';
 import { SubsetProblem } from './subset-problem.type';
 import { CommonModule } from '@angular/common';
 
-import { SetTheroyNotationSubsetProblemGeneratorComponent } from './set-theroy-notation-subset-problem-generator/set-theroy-notation-subset-problem-generator.component';
-import { SetTheroyNotationSubsetSolutionComponent } from './set-theroy-notation-subset-solution-component/set-theroy-notation-subset-solution-component.component';
+import { SetTheoryNotationSubsetProblemGeneratorComponent } from './set-theory-notation-subset-problem-generator/set-theory-notation-subset-problem-generator.component';
+import { SetTheoryNotationSubsetSolutionComponent } from './set-theory-notation-subset-solution-component/set-theroy-notation-subset-solution-component.component';
 
 @Component({
-  selector: 'app-set-theroy-notation-subset',
+  selector: 'app-set-theory-notation-subset',
   imports: [
     MatTabsModule,
     MarkdownComponent,
     CommonModule,
-    SetTheroyNotationSubsetProblemGeneratorComponent,
-    SetTheroyNotationSubsetSolutionComponent
+    SetTheoryNotationSubsetProblemGeneratorComponent,
+    SetTheoryNotationSubsetSolutionComponent
   ],
-  templateUrl: './set-theroy-notation-subset.component.html',
-  styleUrl: './set-theroy-notation-subset.component.scss'
+  templateUrl: './set-theory-notation-subset.component.html',
+  styleUrl: './set-theory-notation-subset.component.scss'
 })
-export class SetTheroyNotationSubsetComponent {
+export class SetTheoryNotationSubsetComponent {
   userAnswered = false;
   userAnswers : SubsetProblem[] = [];
 

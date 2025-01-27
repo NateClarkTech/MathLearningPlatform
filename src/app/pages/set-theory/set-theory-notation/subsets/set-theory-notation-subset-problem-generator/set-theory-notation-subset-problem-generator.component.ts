@@ -9,7 +9,7 @@ import { SubsetProblem } from '../subset-problem.type';
 
 
 @Component({
-  selector: 'app-set-theroy-subset-problem-generator',
+  selector: 'app-set-theory-subset-problem-generator',
   imports: [
     MatCardModule,
     MatInputModule,
@@ -18,10 +18,10 @@ import { SubsetProblem } from '../subset-problem.type';
     MatSelectModule,
     FormsModule,
   ],
-  templateUrl: './set-theroy-notation-subset-problem-generator.component.html',
-  styleUrl: './set-theroy-notation-subset-problem-generator.component.scss'
+  templateUrl: './set-theory-notation-subset-problem-generator.component.html',
+  styleUrl: './set-theory-notation-subset-problem-generator.component.scss'
 })
-export class SetTheroyNotationSubsetProblemGeneratorComponent {
+export class SetTheoryNotationSubsetProblemGeneratorComponent {
 
   @Output() answerSender = new EventEmitter<SubsetProblem[]>();
 
