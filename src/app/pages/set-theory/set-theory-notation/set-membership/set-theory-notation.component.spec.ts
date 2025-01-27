@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SetTheroyNotationComponent } from './set-theroy-notation.component';
+import { SetTheorySetMembershipComponent } from './set-theory-notation.component';
 
 describe('SetTheroyNotationComponent', () => {
-  let component: SetTheroyNotationComponent;
-  let fixture: ComponentFixture<SetTheroyNotationComponent>;
+  let component: SetTheorySetMembershipComponent;
+  let fixture: ComponentFixture<SetTheorySetMembershipComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SetTheroyNotationComponent]
+      imports: [SetTheorySetMembershipComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SetTheroyNotationComponent);
+    fixture = TestBed.createComponent(SetTheorySetMembershipComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

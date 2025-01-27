@@ -1,25 +1,25 @@
 import { Component } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MarkdownComponent } from 'ngx-markdown';
-import { SetTheroyNotiationProblemGeneratorComponent } from "./set-theroy-notiation-problem-generator/set-theroy-notiation-problem-generator.component";
-import { SetTheroyNotationSolutionComponent } from './set-theroy-notation-solution-component/set-theroy-notation-solution-component.component';
+import { SetTheoryNotiationProblemGeneratorComponent } from "./set-theory-notiation-problem-generator/set-theory-notiation-problem-generator.component";
+import { SetTheoryNotationSolutionComponent } from './set-theory-notation-solution-component/set-theory-notation-solution-component.component';
 import { SetMemeberProblem } from './set-member-problem-type';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-set-theroy-notation',
+  selector: 'app-set-theory-set-membership',
   
   imports: [
     MatTabsModule,
     MarkdownComponent,
-    SetTheroyNotiationProblemGeneratorComponent,
-    SetTheroyNotationSolutionComponent,
+    SetTheoryNotiationProblemGeneratorComponent,
+    SetTheoryNotationSolutionComponent,
     CommonModule
   ],
-  templateUrl: './set-theroy-notation.component.html',
-  styleUrl: './set-theroy-notation.component.scss'
+  templateUrl: './set-theory-notation.component.html',
+  styleUrl: './set-theory-notation.component.scss'
 })
-export class SetTheroyNotationComponent {
+export class SetTheorySetMembershipComponent {
   userAnswered = false;
   userAnswers : SetMemeberProblem[] = [];
 

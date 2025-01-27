@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SetTheroyNotationSubsetComponent } from './set-theroy-notation-subset.component';
+import { SetTheroyNotationSubsetComponent } from './set-theory-notation-subset.component';
 
 describe('SetTheroyNotationSubsetComponent', () => {
   let component: SetTheroyNotationSubsetComponent;

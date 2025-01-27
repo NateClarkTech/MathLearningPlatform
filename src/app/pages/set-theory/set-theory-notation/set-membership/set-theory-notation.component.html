@@ -12,10 +12,10 @@
         <div class="spacer">
             @if (!userAnswered) {
                 <span>Here are some generated problems:</span>
-                <app-set-theroy-notiation-problem-generator (answerSender)="recieveUserAnswers($event)"></app-set-theroy-notiation-problem-generator>
+                <app-set-theory-notiation-problem-generator (answerSender)="recieveUserAnswers($event)"></app-set-theory-notiation-problem-generator>
             }
             @else {
-                <app-set-theroy-notation-solution [userAnswers]="userAnswers"></app-set-theroy-notation-solution>
+                <app-set-theory-notation-solution [userAnswers]="userAnswers"></app-set-theory-notation-solution>
             }
         </div>
     </mat-tab>

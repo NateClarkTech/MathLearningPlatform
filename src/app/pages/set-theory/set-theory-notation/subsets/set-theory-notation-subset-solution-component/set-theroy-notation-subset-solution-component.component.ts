@@ -18,10 +18,10 @@ import { SubsetProblem } from '../subset-problem.type';
     MatExpansionModule,
     MatButtonModule,
   ],
-  templateUrl: './set-theroy-notation-subset-solution-component.component.html',
-  styleUrl: './set-theroy-notation-subset-solution-component.component.scss'
+  templateUrl: './set-theory-notation-subset-solution-component.component.html',
+  styleUrl: './set-theory-notation-subset-solution-component.component.scss'
 })
-export class SetTheroyNotationSubsetSolutionComponent implements OnInit {
+export class SetTheoryNotationSubsetSolutionComponent implements OnInit {
   @Input() userAnswers: SubsetProblem[] = [];
 
   userScore = 0;
