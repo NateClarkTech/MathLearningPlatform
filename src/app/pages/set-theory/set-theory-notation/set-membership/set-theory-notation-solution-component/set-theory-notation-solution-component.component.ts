@@ -2,7 +2,7 @@ import { Component, OnInit, Input, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { SetMemeberProblem } from '../set-member-problem-type';
+import { SetMemeberProblem } from '../set-member-problem.type';
 import { MarkdownComponent } from 'ngx-markdown';
 import { FixedSizeVirtualScrollStrategy } from '@angular/cdk/scrolling';
 import { Auth, user } from '@angular/fire/auth';

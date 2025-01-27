@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { Output, EventEmitter } from '@angular/core';
-import { SetMemeberProblem } from '../set-member-problem-type'; 
+import { SetMemeberProblem } from '../set-member-problem.type'; 
 
 export type SubsetProblem = {
   setA: Set<number>;

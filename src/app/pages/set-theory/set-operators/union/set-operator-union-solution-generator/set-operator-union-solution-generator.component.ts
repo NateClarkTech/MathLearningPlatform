@@ -7,10 +7,10 @@ import { AuthService } from '../../../../../services/auth.service';
 import { doc, setDoc } from '@angular/fire/firestore';
 import { FirebaseApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore } from '@angular/fire/firestore';
-import { SubsetProblem } from '../subset-problem.type';
+import { UnionProblem } from '../union-problem.type';
 
 @Component({
-  selector: 'app-set-subset-solution-component',
+  selector: 'app-set-operator-union-solution-generator',
   imports: [
     MatCardModule,
     MatButtonModule,
@@ -18,15 +18,15 @@ import { SubsetProblem } from '../subset-problem.type';
     MatExpansionModule,
     MatButtonModule,
   ],
-  templateUrl: './set-theory-notation-subset-solution-component.component.html',
-  styleUrl: './set-theory-notation-subset-solution-component.component.scss'
+  templateUrl: './set-operator-union-solution-generator.component.html',
+  styleUrl: './set-operator-union-solution-generator.component.scss'
 })
-export class SetTheoryNotationSubsetSolutionComponent implements OnInit {
-  @Input() userAnswers: SubsetProblem[] = [];
+export class SetOperatorUnionSolutionGeneratorComponent {
+  @Input() userAnswers: UnionProblem[] = [];
 
   userScore = 0;
   understandingRank = "unknown";
-  auth = inject(AuthService);
+  auth = inject(AuthService)
   Array = Array;
 
   constructor(private firebaseApp: FirebaseApp) {} // Inject FirebaseApp
@@ -58,21 +58,31 @@ export class SetTheoryNotationSubsetSolutionComponent implements OnInit {
     });
   }
 
-  validateAnswer(userAnswer: boolean | null, correctAnswer: boolean): boolean {
-    return userAnswer === correctAnswer;
+  getUnion(setA: Set<any>, setB: Set<any>): Set<any> {
+    return new Set([...setA, ...setB]);
   }
 
-  getElementsNotSubset(generatedSet: Set<number>, subset: Set<number>): number[] {
-    let elementsNotInMasterSet = [];
-    for (let element of subset) {
-      if (!generatedSet.has(element)) {
-        elementsNotInMasterSet.push(element);
-      }
+  validateAnswer(userAnswer: string[] | null, correctAnswer: Set<any>): boolean {
+    if (userAnswer && userAnswer.length === correctAnswer.size){
+      let answerSet = new Set(userAnswer);
+      return this.eqSet(answerSet, correctAnswer);
     }
-    return elementsNotInMasterSet;
+    else {
+      return false;
+    }
   }
 
   reloadCurrentPage() {
     window.location.reload();
   }
+
+  private eqSet = <T>(xs: Set<T>, ys: Set<T>): boolean => {
+    const areSameSize = xs.size === ys.size;
+    if (!areSameSize) {
+      return false;
+    }
+  
+    const allElementsMatch = [...xs].every((x) => ys.has(x));
+    return allElementsMatch;
+  };
 }

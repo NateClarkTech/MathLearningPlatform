@@ -24,6 +24,16 @@ const TREE_DATA: ProblemNode[] = [
           {name: 'Subsets', routerLink:"set-theory/notation/subsets",},
         ]
       }, 
+      {
+        name: 'Operators',
+        routerLink:"set-theory/operators",
+        children: [
+          {name: 'Union', routerLink:"set-theory/operators/union",},
+          {name: 'Intersection', routerLink:"set-theory/operators/intersection",},
+          {name: 'Disjoint', routerLink:"set-theory/operators/disjoint",},
+          {name: 'Complement', routerLink:"set-theory/operators/complement",},
+        ]
+      },
     ]
   },
 ];

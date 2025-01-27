@@ -1,0 +1,22 @@
+<mat-tab-group dynamicHeight="true">
+    <mat-tab label="Lesson">
+        <div class="spacer">
+            <markdown  
+            katex
+            [src]="'/markdown-files/set-operators-intersection.md'"
+            (load)="onLoad($event)"
+            (error)="onError($event)"></markdown>
+        </div>
+    </mat-tab>
+    <mat-tab [label]="userAnswered ? 'Solutions' : 'Problems'">
+        <div class="spacer">
+            @if (!userAnswered) {
+                <span>Here are some generated problems:</span>
+                <app-set-operator-intersection-problem-generator (answerSender)="recieveUserAnswers($event)"></app-set-operator-intersection-problem-generator>
+            }
+            @else {
+                <app-set-operator-intersection-solution-generator [userAnswers]="userAnswers"></app-set-operator-intersection-solution-generator>
+            }
+        </div>
+    </mat-tab>
+</mat-tab-group>

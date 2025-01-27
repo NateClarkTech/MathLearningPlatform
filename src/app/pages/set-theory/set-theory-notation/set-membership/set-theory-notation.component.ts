@@ -3,7 +3,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MarkdownComponent } from 'ngx-markdown';
 import { SetTheoryNotiationProblemGeneratorComponent } from "./set-theory-notiation-problem-generator/set-theory-notiation-problem-generator.component";
 import { SetTheoryNotationSolutionComponent } from './set-theory-notation-solution-component/set-theory-notation-solution-component.component';
-import { SetMemeberProblem } from './set-member-problem-type';
+import { SetMemeberProblem } from './set-member-problem.type';
 import { CommonModule } from '@angular/common';
 
 @Component({

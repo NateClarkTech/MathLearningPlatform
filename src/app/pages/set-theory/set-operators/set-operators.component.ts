@@ -15,19 +15,6 @@ interface ProblemNode {
 
 const TREE_DATA: ProblemNode[] = [
   {
-    name: 'Set Theory',
-    children:[
-      {
-        name: 'Notation',
-        routerLink:"notation",
-        children: [
-          {name: 'Set Membership', routerLink:"notation/membership",},
-          {name: 'Subsets', routerLink:"notation/subsets",},
-        ]
-      }
-    ]
-  },
-  {
     name: 'Set Theory Operators',
     children: [
       {name: 'Union', routerLink:"union",},
@@ -40,7 +27,7 @@ const TREE_DATA: ProblemNode[] = [
 
 
 @Component({
-  selector: 'app-set-theory',
+  selector: 'app-set-operators',
   imports: [
     MatTreeModule,
     MatIconModule,
@@ -50,10 +37,10 @@ const TREE_DATA: ProblemNode[] = [
     MarkdownModule,
     RouterLink
   ],
-  templateUrl: './set-theory.component.html',
-  styleUrl: './set-theory.component.scss'
+  templateUrl: './set-operators.component.html',
+  styleUrl: './set-operators.component.scss'
 })
-export class SetTheoryComponent {
+export class SetOperatorsComponent {
   childrenAccessor = (node: ProblemNode) => node.children ?? [];
 
   dataSource = TREE_DATA;
