@@ -1,0 +1,70 @@
+@for ( answer of userAnswers; track answer ) {
+    @if (validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'set-minus') {
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <markdown katex>
+                    Suppose the following <br><br>
+                    $ A = \lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace $ <br>
+                    $ B = \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace $<br><br>
+                    What is in the resulting set of this operation?<br><br>
+                    $ A \setminus B $
+                </markdown>
+                <p class="correct-answer">Your answer is correct</p>
+                <markdown katex>
+                    $\lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace \setminus \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace = \lbrace {{ Array.from(answer.answer).join(',&nbsp;') }} \rbrace$
+                </markdown>
+            </div>
+        </mat-card>
+    }
+    @else if (!validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'set-minus') {
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <p>What is the resulting set?</p>
+                <markdown katex>
+                    $\lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace \setminus \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace $
+                </markdown>
+                <p class="wrong-answer">Your answer is incorrect</p>
+                <p>Problem solution: {{ answer.answer ? "True" : "False" }}</p>
+                <div class="bottom-spacer">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Problem solution steps
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <markdown katex>
+                                The operator $ \setminus $ removes the elements in the set on the right had side from the set on the left hand side. <br>
+                                The resulting set will have all the elements in the left hand side set with all elements that appear on the right hand side set removed:<br>
+                                <br>
+                                $\lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace \setminus \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace = \lbrace {{ Array.from(getSetMinus( answer.setA, answer.setB )).join(',&nbsp;') }} \rbrace$
+                            </markdown>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+        </mat-card>
+    }
+    @else {
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <p>Unknown problem type</p>
+            </div>
+        </mat-card>
+    }
+}
+<mat-card class="top-spacer">
+    <div class="side-spacer">
+        @if (understandingRank === 'Need to review'){
+            <h2>You have earned the ranking of {{ understandingRank }}</h2>
+            <button mat-button (click)="reloadCurrentPage()" style="margin-bottom: 5%;">Try again</button>
+        }
+        @else {
+            <h2>You have earned the ranking of {{ understandingRank }}</h2>
+        }
+    </div>
+</mat-card>

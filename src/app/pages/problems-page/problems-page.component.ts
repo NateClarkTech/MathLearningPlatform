@@ -30,7 +30,7 @@ const TREE_DATA: ProblemNode[] = [
         children: [
           {name: 'Union', routerLink:"set-theory/operators/union",},
           {name: 'Intersection', routerLink:"set-theory/operators/intersection",},
-          {name: 'Disjoint', routerLink:"set-theory/operators/disjoint",},
+          {name: 'Set Minus', routerLink:"set-theory/operators/set-minus",},
           {name: 'Complement', routerLink:"set-theory/operators/complement",},
         ]
       },

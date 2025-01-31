@@ -8,9 +8,9 @@ import { SetTheorySetMembershipComponent } from './pages/set-theory/set-theory-n
 import { SetTheoryNotationSubsetComponent } from './pages/set-theory/set-theory-notation/subsets/set-theory-notation-subset.component';
 import { SetOperatorsComponent } from './pages/set-theory/set-operators/set-operators.component';
 import { SetOperatorComplementComponent } from './pages/set-theory/set-operators/complement/set-operator-complement.component';
-import { SetOperatorDisjointComponent } from './pages/set-theory/set-operators/disjoint/set-operator-disjoint.component';
 import { SetOperatorIntersectionComponent } from './pages/set-theory/set-operators/intersection/set-operator-intersection.component';
 import { SetOperatorUnionComponent } from './pages/set-theory/set-operators/union/set-operator-union.component';
+import { SetOperatorSetMinusComponent } from './pages/set-theory/set-operators/set-minus/set-operator-set-minus';
 
 //Router
 import { Routes, CanActivate} from '@angular/router';
@@ -33,7 +33,7 @@ export const routes: Routes = [
     { path: 'problems/set-theory/notation/membership', component: SetTheorySetMembershipComponent, canActivate: [AuthGuard]},
     { path: 'problems/set-theory/operators', component: SetOperatorsComponent, canActivate: [AuthGuard]},
     { path: 'problems/set-theory/operators/complement', component: SetOperatorComplementComponent, canActivate: [AuthGuard]},
-    { path: 'problems/set-theory/operators/disjoint', component: SetOperatorDisjointComponent, canActivate: [AuthGuard]},
+    { path: 'problems/set-theory/operators/set-minus', component: SetOperatorSetMinusComponent, canActivate: [AuthGuard]},
     { path: 'problems/set-theory/operators/intersection', component: SetOperatorIntersectionComponent, canActivate: [AuthGuard]},
     { path: 'problems/set-theory/operators/union', component: SetOperatorUnionComponent, canActivate: [AuthGuard]},
     { path: '**', component: PageNotFoundComponent }
