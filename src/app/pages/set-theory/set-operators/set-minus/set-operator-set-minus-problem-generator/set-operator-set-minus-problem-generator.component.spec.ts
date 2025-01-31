@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SetOperatorSetMinusProblemGeneratorComponent } from './set-operator-set-minus-problem-generator.component';
+import { SetMinusProblemGeneratorComponent } from './set-operator-set-minus-problem-generator.component';
 
 describe('SetOperatorSetMinusProblemGeneratorComponent', () => {
-  let component: SetOperatorSetMinusProblemGeneratorComponent;
-  let fixture: ComponentFixture<SetOperatorSetMinusProblemGeneratorComponent>;
+  let component: SetMinusProblemGeneratorComponent;
+  let fixture: ComponentFixture<SetMinusProblemGeneratorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SetOperatorSetMinusProblemGeneratorComponent]
+      imports: [SetMinusProblemGeneratorComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SetOperatorSetMinusProblemGeneratorComponent);
+    fixture = TestBed.createComponent(SetMinusProblemGeneratorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -3,7 +3,7 @@
         <div class="spacer">
             <markdown  
             katex
-            [src]="'/markdown-files/set-operators-union.md'"
+            [src]="'/markdown-files/set-operators-set-minus.md'"
             (load)="onLoad($event)"
             (error)="onError($event)"></markdown>
         </div>
@@ -15,7 +15,7 @@
                 <app-set-operator-set-minus-problem-generator (answerSender)="recieveUserAnswers($event)"></app-set-operator-set-minus-problem-generator>
             }
             @else {
-                <app-set-operator-set-minus-solution-generator [userAnswers]="userAnswers"></app-set-operator-set-minus-problem-generator>
+                <app-set-operator-set-minus-solution-generator [userAnswers]="userAnswers"></app-set-operator-set-minus-solution-generator>
             }
         </div>
     </mat-tab>
