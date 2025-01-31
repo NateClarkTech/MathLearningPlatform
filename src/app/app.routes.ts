@@ -11,6 +11,8 @@ import { SetOperatorComplementComponent } from './pages/set-theory/set-operators
 import { SetOperatorIntersectionComponent } from './pages/set-theory/set-operators/intersection/set-operator-intersection.component';
 import { SetOperatorUnionComponent } from './pages/set-theory/set-operators/union/set-operator-union.component';
 import { SetOperatorSetMinusComponent } from './pages/set-theory/set-operators/set-minus/set-operator-set-minus';
+import { TheoremsComponent } from './pages/set-theory/theroms/theorems.component'
+import { DemorganLawComponent } from './pages/set-theory/theroms/demorgan-law/demorgan-law.component';
 
 //Router
 import { Routes, CanActivate} from '@angular/router';
@@ -36,5 +38,7 @@ export const routes: Routes = [
     { path: 'problems/set-theory/operators/set-minus', component: SetOperatorSetMinusComponent, canActivate: [AuthGuard]},
     { path: 'problems/set-theory/operators/intersection', component: SetOperatorIntersectionComponent, canActivate: [AuthGuard]},
     { path: 'problems/set-theory/operators/union', component: SetOperatorUnionComponent, canActivate: [AuthGuard]},
+    { path: 'problems/set-theory/theorems', component: TheoremsComponent, canActivate: [AuthGuard]},
+    { path: 'problems/set-theory/theorems/demorgan-law', component: DemorganLawComponent, canActivate: [AuthGuard]},
     { path: '**', component: PageNotFoundComponent }
 ];

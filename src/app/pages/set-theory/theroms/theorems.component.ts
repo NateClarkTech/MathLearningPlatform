@@ -15,19 +15,18 @@ interface ProblemNode {
 
 const TREE_DATA: ProblemNode[] = [
   {
-    name: 'Set Theory Operators',
-    children: [
-      {name: 'Union', routerLink:"union",},
-      {name: 'Intersection', routerLink:"intersection",},
-      {name: 'Disjoint', routerLink:"disjoint",},
-      {name: 'Complement', routerLink:"complement",},
+    name: 'Theorems',
+    children:[
+      {
+        name: 'DeMorgan\'s Law',
+        routerLink:"demorgans-law",
+      }
     ]
   },
 ];
 
-
 @Component({
-  selector: 'app-set-operators',
+  selector: 'app-theorems',
   imports: [
     MatTreeModule,
     MatIconModule,
@@ -37,11 +36,10 @@ const TREE_DATA: ProblemNode[] = [
     MarkdownModule,
     RouterLink
   ],
-  templateUrl: './set-operators.component.html',
-  styleUrl: './set-operators.component.scss'
+  templateUrl: './theorems.component.html',
+  styleUrl: './theorems.component.scss'
 })
-
-export class SetOperatorsComponent {
+export class TheoremsComponent {
   childrenAccessor = (node: ProblemNode) => node.children ?? [];
 
   dataSource = TREE_DATA;
