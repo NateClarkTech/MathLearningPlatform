@@ -57,11 +57,7 @@ export class SetOperatorComplementSolutionGeneratorComponent {
         userMasteryRank: this.understandingRank
       });
     }
-  
-    getIntersection(setA: Set<any>, setB: Set<any>): Set<any> {
-      return new Set([...setA].filter(x => setB.has(x)));
-    }
-  
+
     validateAnswer(userAnswer: string[] | null, correctAnswer: Set<any>): boolean {
       if (correctAnswer.size === 0 && userAnswer === null) {
         return true;
