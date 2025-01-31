@@ -1,1 +1,35 @@
-<p>set-operator-complement works!</p>
+<mat-tab-group dynamicHeight="true">
+    <mat-tab label="Lesson">
+        <div class="spacer">
+            <markdown  
+            katex
+            [src]="'/markdown-files/set-operators-complement.md'"
+            (load)="onLoad($event)"
+            (error)="onError($event)"></markdown>
+        </div>
+    </mat-tab>
+    <mat-tab [label]="userAnswered ? 'Solutions' : 'Problems'">
+        <div class="spacer">
+            @if (!userAnswered) {
+                <mat-card>
+                    <markdown katex class="side-spacer">
+                        **Example Problem:**<br><br>
+                        Suppose the following: <br><br>
+                        $ U $ = $ \lbrace$ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 $\rbrace $ <br>
+                        $ A = \lbrace$ 1, 2, 3 $\rbrace $ <br>
+                        $ B = \lbrace$ 3, 4, 5 $\rbrace $<br><br>
+                        What is in the resulting set from the following operation?<br>
+                        $ A^c \cup B^c $<br><br>
+                        How an answer can be formated:<br>
+                        $\lbrace$ 6, 7, 8, 9, 10 $\rbrace$<br><br>
+                        If an answer is an empty set, type "null" as the answer.<br><br>
+                    </markdown>
+                </mat-card>
+                <app-set-operator-complement-problem-generator (answerSender)="recieveUserAnswers($event)"></app-set-operator-complement-problem-generator>
+            }
+            @else {
+                <app-set-operator-complement-solution-generator [userAnswers]="userAnswers"></app-set-operator-complement-solution-generator>
+            }
+        </div>
+    </mat-tab>
+</mat-tab-group>

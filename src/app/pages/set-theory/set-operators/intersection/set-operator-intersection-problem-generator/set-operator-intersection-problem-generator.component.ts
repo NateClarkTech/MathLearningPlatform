@@ -23,7 +23,7 @@ import { IntersectionProblem } from '../intersection-problem.type';
   styleUrl: './set-operator-intersection-problem-generator.component.scss'
 })
 export class SetOperatorIntersectionProblemGeneratorComponent {
-@Output() answerSender = new EventEmitter<IntersectionProblem[]>();
+  @Output() answerSender = new EventEmitter<IntersectionProblem[]>();
   generatedProblems: IntersectionProblem[] = [];
 
   Array = Array; // Expose Array to the template
