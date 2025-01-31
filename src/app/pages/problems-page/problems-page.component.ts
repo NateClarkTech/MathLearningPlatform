@@ -34,6 +34,16 @@ const TREE_DATA: ProblemNode[] = [
           {name: 'Complement', routerLink:"set-theory/operators/complement",},
         ]
       },
+      {
+        name: 'Theorems',
+        routerLink:"set-theory/theorems",
+        children:[
+          {
+            name: 'DeMorgan\'s Law',
+            routerLink:"set-theory/theorems/demorgans-law",
+          }
+        ]
+      }
     ]
   },
 ];

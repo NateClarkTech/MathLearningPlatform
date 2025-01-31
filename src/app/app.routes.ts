@@ -39,6 +39,6 @@ export const routes: Routes = [
     { path: 'problems/set-theory/operators/intersection', component: SetOperatorIntersectionComponent, canActivate: [AuthGuard]},
     { path: 'problems/set-theory/operators/union', component: SetOperatorUnionComponent, canActivate: [AuthGuard]},
     { path: 'problems/set-theory/theorems', component: TheoremsComponent, canActivate: [AuthGuard]},
-    { path: 'problems/set-theory/theorems/demorgan-law', component: DemorganLawComponent, canActivate: [AuthGuard]},
+    { path: 'problems/set-theory/theorems/demorgans-law', component: DemorganLawComponent, canActivate: [AuthGuard]},
     { path: '**', component: PageNotFoundComponent }
 ];

@@ -1,1 +1,22 @@
-<p>demorgan-law works!</p>
+<mat-tab-group dynamicHeight="true">
+    <mat-tab label="Lesson">
+        <div class="spacer">
+            <markdown  
+            katex
+            [src]="'/markdown-files/theroms-demorgans-law.md'"
+            (load)="onLoad($event)"
+            (error)="onError($event)"></markdown>
+        </div>
+    </mat-tab>
+    <mat-tab [label]="userAnswered ? 'Solutions' : 'Problems'">
+        <div class="spacer">
+            @if (!userAnswered) {
+                <span>Here are some generated problems:</span>
+                <app-demorgan-law-problem-generator (answerSender)="recieveUserAnswers($event)"></app-demorgan-law-problem-generator>
+            }
+            @else {
+                <app-demorgan-law-solution-generator [userAnswers]="userAnswers"></app-demorgan-law-solution-generator>
+            }
+        </div>
+    </mat-tab>
+</mat-tab-group>

@@ -1,18 +1,39 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { MatTreeModule } from '@angular/material/tree';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import { Component } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
-import { RouterLink } from '@angular/router';
+import { MarkdownComponent } from 'ngx-markdown';
 import { CommonModule } from '@angular/common';
-import { MarkdownComponent, MarkdownModule } from 'ngx-markdown';
+import { DemorganLawProblemGeneratorComponent } from './demorgan-law-problem-generator/demorgan-law-problem-generator.component';
+import { DemorganLawSolutionGeneratorComponent } from './demorgan-law-solution-generator/demorgan-law-solution-generator.component';
+import { DemorgansLawProblem } from './demorgans-law-problem.type';
 
 @Component({
   selector: 'app-demorgan-law',
-  imports: [],
+  imports: [
+    MatTabsModule,
+    MarkdownComponent,
+    CommonModule,
+    DemorganLawProblemGeneratorComponent,
+    DemorganLawSolutionGeneratorComponent
+  ],
   templateUrl: './demorgan-law.component.html',
   styleUrl: './demorgan-law.component.scss'
 })
 export class DemorganLawComponent {
+  userAnswered = false;
+  userAnswers : DemorgansLawProblem[] = [];
 
+  onLoad($event : any){
+    console.log($event);
+  }
+
+  onError($event : any){
+    console.log($event);
+  }
+
+  recieveUserAnswers($event : DemorgansLawProblem[]){
+    console.log("Succussfully recieved user answers");
+    console.log($event);
+    this.userAnswers = $event;
+    this.userAnswered = true;
+  }
 }
