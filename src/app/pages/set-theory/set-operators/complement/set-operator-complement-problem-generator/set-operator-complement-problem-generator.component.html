@@ -1,1 +1,51 @@
-<p>set-operator-complement-problem-generator works!</p>
+@for (problem of generatedProblems; track problem){
+    <mat-card class="top-spacer">
+        <div class="side-spacer">
+            <h4>Problem {{ $index + 1 }}</h4>
+            @if (problem.type === 'complement-intersect'){
+                <markdown katex>
+                    Suppose the following <br><br>
+                    $ U = \lbrace$ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 $\rbrace $ <br>
+                    $ A = \lbrace {{ Array.from(problem.setA).join(',&nbsp;') }} \rbrace $ <br>
+                    $ B = \lbrace {{ Array.from(problem.setB).join(',&nbsp;') }} \rbrace $<br><br>
+                    What is in the resulting set of this operation?<br><br>
+                    $ A{{problem.aComplement ? "^c" : null}} \cap B{{problem.bComplement ? "^c" : null}} $
+                </markdown>
+                <div class="bottom-spacer">
+                    <mat-form-field class="full-width">
+                        <mat-label>Resulting set</mat-label>
+                        <input matInput placeholder="Enter your answer" [(ngModel)]="userAnswers[$index]">
+                        <mat-hint align="start">Answer should be seperated by commas</mat-hint>
+                        <mat-hint align="end">eg. "1,2,3,...,15</mat-hint>
+                    </mat-form-field>
+                </div>
+            }
+            @else if (problem.type === 'complement-union'){
+                <markdown katex>
+                    Suppose the following <br><br>
+                    $ U = \lbrace$ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 $\rbrace $ <br>
+                    $ A = \lbrace {{ Array.from(problem.setA).join(',&nbsp;') }} \rbrace $ <br>
+                    $ B = \lbrace {{ Array.from(problem.setB).join(',&nbsp;') }} \rbrace $<br><br>
+                    What is in the resulting set of this operation?<br><br>
+                    $ A{{problem.aComplement ? "^c" : null}} \cup B{{problem.bComplement ? "^c" : null}} $                    </markdown>
+                <div class="bottom-spacer">
+                    <mat-form-field class="full-width">
+                        <mat-label>Resulting set</mat-label>
+                        <input matInput placeholder="Enter your answer" [(ngModel)]="userAnswers[$index]">
+                        <mat-hint align="start">Answer should be seperated by commas</mat-hint>
+                        <mat-hint align="end">eg. "1,2,3,...,15</mat-hint>
+                    </mat-form-field>
+                </div>
+            }
+            @else {
+                <h3>ERROR: Problem type not recognized</h3>
+            }
+        </div>
+    </mat-card>
+}
+
+<mat-card class="top-spacer">
+    <div class="side-spacer">
+        <button mat-raised-button color="primary" (click)="sendUserAnswers()">Submit</button>
+    </div>
+</mat-card>

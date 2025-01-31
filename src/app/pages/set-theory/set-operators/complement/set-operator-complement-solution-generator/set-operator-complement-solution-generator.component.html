@@ -1,1 +1,164 @@
-<p>set-operator-complement-solution-generator works!</p>
+@for ( answer of userAnswers; track answer ) {
+    @if (validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'complement-intersect') {
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <markdown katex>
+                    Suppose the following <br><br>
+                    $ U = \lbrace$ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 $\rbrace $ <br>
+                    $ A = \lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace $ <br>
+                    $ B = \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace $<br><br>
+                    What is in the resulting set of this operation?<br><br>
+                    $ A {{ answer.aComplement ? "^c" : null}} \cap B {{ answer.bComplement ? "^c" : null}}$
+                </markdown>
+                <p class="correct-answer">Your answer is correct</p>
+                <markdown katex>
+                    $\lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace \cap \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace = \lbrace {{ Array.from(answer.answer).join(',&nbsp;') }} \rbrace$
+                </markdown>
+            </div>
+        </mat-card>
+    }
+    @else if (!validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'complement-intersect') {
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <markdown katex>
+                    Suppose the following <br><br>
+                    $ U = \lbrace$ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 $\rbrace $ <br>
+                    $ A = \lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace $ <br>
+                    $ B = \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace $<br><br>
+                    What is in the resulting set of this operation?<br><br>
+                    $ A {{ answer.aComplement ? "^c" : null}} \cap B {{ answer.bComplement ? "^c" : null}} $
+                </markdown>
+                <p class="wrong-answer">Your answer is incorrect</p>
+                <p>Your answer:</p>
+                <markdown katex> {{ answer.userAnswer ? "{" + Array.from(answer.userAnswer).join(',&nbsp;') + "}" : "∅" }}</markdown>
+                <p>Problem solution: {{ Array.from(answer.answer).join(',&nbsp;') }}</p>
+                <div class="bottom-spacer">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Problem solution steps
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <markdown katex>
+                                The symbol $\cap$ means to find the intersection of two sets. The intersection of two sets is the set of elements that are in both sets. <br>
+                                The symbol $^c$ on a set means the complement of the set. The complement of a set is the set of elements that are not in the set. <br>
+                                To find the solution first find out what is in each set. <br>
+                                $ A = \lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace $ <br>
+                                @if (answer.aComplement) {
+                                    Since we are looking at A^c, we are intrested in the elements **not** in A <br>
+                                }
+                                @else {
+                                    Since we are looking at A, we are intrested in the elements in A <br>
+                                }
+                                $ B = \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace $ <br>
+                                @if (answer.bComplement) {
+                                    Since we are looking at B^c, we are intrested in the elements **not** in B <br>
+                                }
+                                @else {
+                                    Since we are looking at B, we are intrested in the elements in B <br>
+                                }
+                                Now that we know what is in each set, we can find the intersection of the two sets. <br>
+                                $ A {{ answer.aComplement ? "^c" : null}} \cap B {{ answer.bComplement ? "^c" : null}} = \lbrace {{ Array.from(answer.answer).sort().join(',&nbsp;') }} \rbrace $
+                            </markdown>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+        </mat-card>
+    }
+    @else if (validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'complement-union') {
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <markdown katex>
+                    Suppose the following <br><br>
+                    $ U = \lbrace$ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 $\rbrace $ <br>
+                    $ A = \lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace $ <br>
+                    $ B = \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace $<br><br>
+                    What is in the resulting set of this operation?<br><br>
+                    $ A {{ answer.aComplement ? "^c" : null}} \cap B {{ answer.bComplement ? "^c" : null}} $
+                </markdown>
+                <p class="correct-answer">Your answer is correct</p>
+                <markdown katex>
+                    $\lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace \cup \lbrace {{ Array.from(answer.setB).sort().join(',&nbsp;') }} \rbrace = \lbrace {{ Array.from(answer.answer).join(',&nbsp;') }} \rbrace$
+                </markdown>
+            </div>
+        </mat-card>
+    }
+    @else if (!validateAnswer(answer.userAnswer, answer.answer) && answer.type === 'complement-union') {
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <h4>Problem {{ $index + 1 }} Solution</h4>
+                <p>Question:</p>
+                <markdown katex>
+                    Suppose the following <br><br>
+                    $ U = \lbrace$ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 $\rbrace $ <br>
+                    $ A = \lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace $ <br>
+                    $ B = \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace $<br><br>
+                    What is in the resulting set of this operation?<br><br>
+                    $ A {{ answer.aComplement ? "^c" : null}} \cup B {{ answer.bComplement ? "^c" : null}} $
+                </markdown>
+                <p class="wrong-answer">Your answer is incorrect</p>
+                <p>Your answer:</p>
+                <markdown katex> {{ answer.userAnswer ? "{" + Array.from(answer.userAnswer).join(',&nbsp;') + "}" : "∅" }}</markdown>
+                <p>Problem solution: {{ Array.from(answer.answer).join(',&nbsp;') }}</p>
+                <div class="bottom-spacer">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Problem solution steps
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <markdown katex>
+                                The symbol $\cup$ means to find the union of two sets. The union of two sets is the set of elements that are in either set or both sets. <br>
+                                The symbol $^c$ on a set means the complement of the set. The complement of a set is the set of elements that are not in the set. <br>
+                                To find the solution first find out what is in each set. <br>
+                                $ A = \lbrace {{ Array.from(answer.setA).join(',&nbsp;') }} \rbrace $ <br>
+                                @if (answer.aComplement) {
+                                    Since we are looking at A^c, we are interested in the elements **not** in A <br>
+                                }
+                                @else {
+                                    Since we are looking at A, we are interested in the elements in A <br>
+                                }
+                                $ B = \lbrace {{ Array.from(answer.setB).join(',&nbsp;') }} \rbrace $ <br>
+                                @if (answer.bComplement) {
+                                    Since we are looking at B^c, we are interested in the elements **not** in B <br>
+                                }
+                                @else {
+                                    Since we are looking at B, we are interested in the elements in B <br>
+                                }
+                                Now that we know what is in each set, we can find the union of the two sets. <br>
+                                $ A {{ answer.aComplement ? "^c" : null}} \cup B {{ answer.bComplement ? "^c" : null}} = \lbrace {{ Array.from(answer.answer).join(',&nbsp;') }} \rbrace $
+                            </markdown>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+        </mat-card>
+    }
+    @else {
+        <mat-card class="top-spacer">
+            <div class="side-spacer">
+                <p>Unknown problem type</p>
+            </div>
+        </mat-card>
+    }
+}
+<mat-card class="top-spacer">
+    <div class="side-spacer">
+        @if (understandingRank === 'Need to review'){
+            <h2>You have earned the ranking of {{ understandingRank }}</h2>
+            <button mat-button (click)="reloadCurrentPage()" style="margin-bottom: 5%;">Try again</button>
+        }
+        @else {
+            <h2>You have earned the ranking of {{ understandingRank }}</h2>
+        }
+    </div>
+</mat-card>
